@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>CNIC Scanner</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+  <h1>CNIC Scanner</h1>
+  <p class="sub">Upload a photo and automatically crop & straighten the CNIC.</p>
+
+  <label class="upload">
+    <input id="file" type="file" accept="image/*" capture="environment">
+    <span>📷 Choose / Take Photo</span>
+  </label>
+
+  <div class="actions">
+    <button id="scan" disabled>Scan CNIC</button>
+    <button id="reset" class="secondary">Reset</button>
+  </div>
+
+  <p id="status">Choose a photo to begin.</p>
+
+  <section class="grid">
+    <div>
+      <h2>Original</h2>
+      <canvas id="inputCanvas"></canvas>
+    </div>
+    <div>
+      <h2>Result</h2>
+      <canvas id="outputCanvas"></canvas>
+    </div>
+  </section>
+
+  <a id="download" class="download" download="cnic-cropped.jpg" hidden>⬇ Save Cropped CNIC</a>
+
+  <p class="note">Processing happens in your browser. The image is not uploaded to a server by this app.</p>
+</main>
+
+<script async src="https://docs.opencv.org/4.x/opencv.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
